@@ -1,21 +1,35 @@
-class HomePage{
-    get getPizzaLink() {
-        return cy.contains('a','Pizza');  
+class HomePage {
+
+    constructor() {
+        this.buttonAddToCart = '[data-testid="button_add_to_cart"]';
     }
 
-    get getChickenTikkaLink() {
-        return  cy.contains('a','Chicken Tikka');
+    //PLP = product listing page
+    openPLP() {
+        cy.contains('a', 'Pizza').click();
     }
 
-    get getAddToCartButton() {
-        return cy.get('[data-testid="button_add_to_cart"]');
+    checkURLforPLP() {
+        cy.url().should('include', '#pizzas');
     }
 
-    get getSpecifyTheDeliveryAddressButton() {
-        return cy.contains('button', 'Specify the delivery address');
+    openChickenTikkaPizza() {
+        cy.contains('a', 'Chicken Tikka').click();
     }
-       
-    open(){
+
+    checkChickenTikkaTitle() {
+        cy.contains('h1', 'Chicken Tikka').should('exist');
+    }
+
+    clickCartButton() {
+        cy.get(this.buttonAddToCart).click();
+    }
+
+    openDataMobileForm() {
+        cy.contains('button', 'Specify the delivery address').click();
+    }
+
+    open() {
         cy.visit('/');
     }
 }

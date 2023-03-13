@@ -1,35 +1,43 @@
 class dataMobileForm {
-
-    get getStreetAddressField(){
-        return cy.contains('label','Enter your street address').siblings('input');
+    constructor(){
+        this.addressList = 'li[class="item"]';
+        this.doorField = 'input[name="doorCode"]';
+        this.floorField = 'input[name="floor"]';
+        this.appartmentField = 'input[name="apartment"]';
+        this.commentField = 'input[name="comment"]';
+        this.saveButton = 'button[type="submit"]';
+    }
+   
+    inputAddress(street){
+        cy.contains('label','Enter your street address').siblings('input').type(street);
     }
 
-    get getAddress() {
-        return cy.get('li[class="item"]').eq(0);
+    selectAddress() {
+        cy.get(this.addressList).eq(0).click();
     }
 
-    get getEntranceField(){
-        return cy.contains('label','Entrance').siblings('input');
+    inputEntrance(entrance, configuration){
+        cy.contains('label','Entrance').siblings('input').type(entrance, configuration);
     }
 
-    get getDoorCodeField(){
-        return cy.get("input[name='doorCode']");
+    inputDoor(door, configuration){
+        cy.get(this.doorField).type(door, configuration);
     }
 
-    get getFloorField(){
-        return cy.get("input[name='floor']");
+   inputFloor(floor, configuration){
+        cy.get(this.floorField).type(floor, configuration);
     }
 
-    get getAppartmentField(){
-        return cy.get("input[name='apartment']");
+    inputAppartment(appartment, configuration){
+        cy.get(this.appartmentField).type(appartment, configuration);
     }
 
-    get getCommentField(){
-        return cy.get("input[name='comment']");
+    inputComment(comment) {
+        cy.get(this.commentField).type(comment);
     }
 
-    get getSaveButton(){
-        return cy.get('button[type="submit"]');
+    createOrder(){
+        cy.get(this.saveButton).click();
     }      
 }
 
