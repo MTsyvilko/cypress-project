@@ -32,8 +32,8 @@ class dataMobileForm {
         cy.get(this.appartmentField).type(appartment, configuration);
     }
 
-    inputComment(comment) {
-        cy.get(this.commentField).type(comment);
+    inputComment(comment, configuration) {
+        cy.get(this.commentField).type(comment, configuration);
     }
 
     createOrder(){

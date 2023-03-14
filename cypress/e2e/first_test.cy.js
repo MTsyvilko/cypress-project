@@ -17,7 +17,7 @@ describe('Testing of Dodo site', () => {
     dataMobileForm.inputDoor(data.address.door, { force: true });
     dataMobileForm.inputFloor(data.address.floor, { force: true });
     dataMobileForm.inputAppartment(data.address.flat, { force: true });
-    dataMobileForm.inputComment(data.address.comment);
+    dataMobileForm.inputComment(data.address.comment, { force: true } );
     dataMobileForm.createOrder();
   })
 })
